@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SQL DUEL ░ QUERY ANALYZER 9000</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&family=Share+Tech+Mono&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./sql_duel.css" />
+
+    <script defer src="./sql_duel.js"></script>
+  </head>
+
+  <body>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+
+    <main>
+      <header>
+        <div class="title-wrap">
+          <h1 class="glitch" data-text="SQL DUEL">SQL DUEL</h1>
+        </div>
+        <div class="subtitle">
+          // query analyzer 9000 <span class="blink">_</span>
+        </div>
+      </header>
+
+      <!-- ═════════ SCHEMA ═════════ -->
+      <section id="schema-section">
+        <h2>
+          <span class="bracket">[</span> 01
+          <span class="bracket">]</span> Define the Battlefield
+        </h2>
+        <p class="section-hint">
+          Add your tables, columns, indexes, and rough row counts. The estimator
+          uses this to figure out which query wins.
+        </p>
+        <div id="tables-container"></div>
+        <div class="actions-row" style="margin-top: 16px">
+          <button class="add-btn" id="add-table-btn">＋ Add Table</button>
+          <button id="load-sample-btn">⟳ Load Sample Schema</button>
+          <button id="clear-schema-btn" class="danger">⨯ Clear All</button>
+        </div>
+      </section>
+
+      <!-- ═════════ QUERIES ═════════ -->
+      <section id="queries-section">
+        <h2>
+          <span class="bracket">[</span> 02 <span class="bracket">]</span> Enter
+          Combatants
+        </h2>
+        <p class="section-hint">
+          Drop two SELECT queries. Tabs of variation, SELECT * vs targeted,
+          indexed WHERE vs full-scan WHERE — all fair game.
+        </p>
+        <div class="query-arena">
+          <div class="query-box a">
+            <label>// QUERY A</label>
+            <textarea id="query-a" spellcheck="false"></textarea>
+          </div>
+          <div class="vs">⚔</div>
+          <div class="query-box b">
+            <label>// QUERY B</label>
+            <textarea id="query-b" spellcheck="false"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════ EXECUTE ═════════ -->
+      <div class="execute-wrap">
+        <button id="execute-btn">// Execute Duel //</button>
+      </div>
+
+      <!-- ═════════ RESULTS ═════════ -->
+      <section id="results">
+        <h2>
+          <span class="bracket">[</span> 03
+          <span class="bracket">]</span> Verdict
+        </h2>
+        <div id="results-content"></div>
+      </section>
+
+      <footer>
+        <p>
+          Built with <span class="heart">♥</span> in the neon void · estimates
+          only — actual perf depends on your DB engine, statistics & cosmic
+          alignment
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
